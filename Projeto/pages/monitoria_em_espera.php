@@ -1,30 +1,34 @@
 <?php
-$titlePage = 'Minhas Monitorias Inscritas';
-$nameCSS = "minhas_monitorias_inscritas";
+$titlePage = 'Minhas Monitorias';
+$nameCSS = "minhas_monitorias";
 
 include_once 'header.php';
 ?>
 
 <main class="main-content">
     <div class="abas">
-        <div class="aba-espera">
-            Em Espera
-        </div>
-        <div class="aba-concluido">
-            Concluída
-        </div>
+        <p>Filtrar:</p>
+        <form class="form-espera" action="monitoria_em_espera.php">
+            <button class="buttons">Em Espera</button>
+        </form>
+        <form class="form-concluido" action="monitoria_concluido.php">
+            <button class="buttons">Concluído</button>
+        </form>
         
     </div>
     <div class="card-grid">
         <!-- Cards repetidos -->
         <div class="card">
                 <div class="card-top">
+                    <button class="edit-icon" id="iconeEdicao">
+                        <img src="../public/img/formsComponents/icone-edicao.jpeg" alt="Ícone de Edição" class="edit-image">
+                    </button>
                     <div class="options-icon" id="optionsIcon">⋮</div>
 
                     <div class="options-popup" id="optionsPopup">
                         <ul>
-                            <li><a href="visualizacao_monitoria.php" class="popup-option" data-action="editar">Visualizar</a></li>
-                            <li><a href="#" class="popup-option" data-action="excluir" id="linkSair">Desinscrever</a></li>
+                            <li><a href="#" class="popup-option" data-action="editar">Editar</a></li>
+                            <li><a href="#" class="popup-option" data-action="excluir" id="linkSair">Excluir</a></li>
                         </ul>
                     </div>
                 </div>
@@ -39,17 +43,16 @@ include_once 'header.php';
                     </div>
                 </div>
             </div>
-
         <!-- Repita mais cards conforme necessário -->
     </div>
 </main>
 </main>
-    <button class="botao-adicionar" id="botaoAdicionar" id="editar">
+    <button class="botao-adicionar" id="botaoAdicionar">
         +
     </button>
     <div class="modal-overlay-sair" id="confirmModal-sair">
         <div class="modal-box-sair">
-            <h3>Deseja realmente desinscrever da monitoria selecionada?</h3>
+            <h3>Deseja realmente excluir as informações da monitoria selecionada?</h3>
             <button class="btn-confirmar-sair" id="btnSim-sair">Confirmar</button>
             <button class="btn-cancelar-sair" id="btnNao-sair">Cancelar</button>
         </div>
@@ -59,7 +62,7 @@ include_once 'header.php';
 <?php
 
 
-$scripts = ["minhas_monitoriaJS/minhas_monitorias_inscritas", "minhas_monitoriaJS/minhas_monitorias_excluir"];
+$scripts = ["minhas_monitoriaJS/minhas_monitorias", "minhas_monitoriaJS/minhas_monitorias_excluir"];
 include_once 'footer.php';
 
 ?>
