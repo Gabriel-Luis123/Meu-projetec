@@ -6,14 +6,11 @@ include_once 'header.php';
 ?>
 
 <main class="card-grid">
-    <div class="card-grid-sair">
-        <a href="minhas_monitorias.php" id="linkSair">x</a> 
-    </div>
-    <form class="container-formulario" id="form-monitoria" method="POST" action="minhas_monitorias.php">
+    <form class="container-formulario" id="form-monitoria" method="POST" action="#">
         <div class="cabecalho-formulario">
-            <div class="cabecalho-formulario-nome">Ricardo Dias</div>
-            <div class="cabecalho-formulario-disciplina">Matemática</div>
-            <div class="cabecalho-formulario-info">INFO 2</div>
+            <div class="cabecalho-formulario-nome cabecalho-destaque">Ricardo Dias</div>
+            <div class="cabecalho-formulario-disciplina cabecalho-destaque  ">Matemática</div>
+            <div class="cabecalho-formulario-info cabecalho-destaque">INFO 2</div>
         </div>
         <div class="corpo-formulario">
             <div class="linha-formulario">
@@ -22,15 +19,11 @@ include_once 'header.php';
             </div>
             <div class="linha-formulario">
                 <label for="inputSala">Sala:</label>
-                <input type="text" id="inputSala" value="302">
+                <input type="text" id="inputSala" placeholder="302">
             </div>
             <div class="linha-formulario">
                 <label for="inputHorario">Horário:</label>
-                <input type="text" id="inputHorario" value="19:30">
-            </div>
-            <div class="linha-formulario">
-                <label for="inputMaterias">Conteúdos:</label>
-                <input type="text" id="inputMaterias" value="Geometria">
+                <input type="text" id="inputHorario" placeholder="00:00">
             </div>
             <div class="linha-formulario largura-total">
                 <textarea id="areaTextoMateriais"
@@ -38,7 +31,7 @@ include_once 'header.php';
             </div>
         </div>
         <div class="rodape-formulario">
-            <button class="botao-enviar" id="botaoConfirmarEdicao" type="submit">✔️</button>
+            <button class="botao-enviar" id="botaoConfirmarEdicao">✔</button>
         </div>
     </form>
 
