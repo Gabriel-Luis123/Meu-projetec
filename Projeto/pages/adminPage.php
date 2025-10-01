@@ -1,10 +1,17 @@
 <?php 
-
 $nameCSS = "adminPage";
 $titlePage = "Página de Admin";
 
 include_once "header.php";
-
+session_start();
+// Se for um usuário comum
+if ($_SESSION['permissao'] != 'adminif') {
+    echo "<script>
+        alert('Você não possui acesso à página que tentou acessar.');
+        window.location.href = 'inicial.php';
+    </script>";
+    exit;
+}
 ?>
 
 <main class="main-admin">
@@ -133,10 +140,10 @@ include_once "header.php";
             <h2 class="admin-achar_alunos-materias-title">Disciplina Monitorada:</h2>
             <div class="materias_monitoria_aluno_1">
                 <select name="materias_monitoria" class="materias_monitoria">
-                    <option value="matematica">Matematica</option>
+                    <option value="matematica">Matemática</option>
                     <option value="portugues">Português</option>
-                    <option value="fisica">Fisica</option>
-                    <option value="quimica">Quimica</option>
+                    <option value="fisica">Fásica</option>
+                    <option value="quimica">Química</option>
                     <option value="biologia">Biologia</option>
                     <option value="ed-fisica">Educação F.</option>
                 </select>

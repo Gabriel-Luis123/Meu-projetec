@@ -3,6 +3,9 @@ $titlePage = 'Minhas Monitorias';
 $nameCSS = "minhas_monitorias";
 
 include_once 'header.php';
+session_start();
+// Se for um usuário comum
+
 ?>
 
 <main class="main-content">
