@@ -1,11 +1,6 @@
 <?php
     $titlePage = 'Página Inicial';
     $nameCSS = 'inicial';
-    session_start();
-    if (isset($_SESSION['username'])) {
-	    header('Location: login.php');
-	    exit;
-     }
     include_once "header.php";
 ?>
 
@@ -36,8 +31,10 @@
             </div>
         </section>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     
 <?php
-    $scripts = [];
+    $scripts = ['inicialJs/mensagensDeAcessoNegado', 'inicialJs/mensagensDeSucesso'];
     include_once "footer.php";
 ?>

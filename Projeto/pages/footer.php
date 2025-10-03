@@ -11,6 +11,12 @@ if (basename($_SERVER['PHP_SELF']) !== 'login.php') {
     <script src="../public/js/<?php echo $script; ?>.js" type="module"></script>
 
 <?php endforeach; ?>
+
+<script>
+    setTimeout(() => {
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }, 1000);
+</script>
 </body>
 
 </html>
