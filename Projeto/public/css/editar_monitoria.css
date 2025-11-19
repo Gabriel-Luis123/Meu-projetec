@@ -98,8 +98,24 @@ form {
     min-width: 70px; 
 }
 
+#inputSala{
+  max-height: 150px;
+  overflow-y: scroll;
+  height: auto;
+}
+
+#inputSala[size]{
+  height: auto;
+}
+
+#inputSala option{
+  padding: 5px;
+}
+
+
+
 .linha-formulario input[type="text"],
-.linha-formulario textarea {
+.linha-formulario textarea, .linha-formulario input[type="date"], .linha-formulario select {
     flex-grow: 1; 
     padding: 8px 12px;
     border: 2px solid var(--cor-borda);
@@ -112,7 +128,7 @@ form {
 }
 
 .linha-formulario input[type="text"]::placeholder,
-.linha-formulario textarea::placeholder {
+.linha-formulario textarea::placeholder, .linha-formulario input[type="date"]::placeholder {
     color: var(--cor-texto-cinza);
 }
 
