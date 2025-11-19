@@ -1,4 +1,3 @@
-import { mensagens_sucesso } from '../validacaoDeForms/sucessos.js';
 import { mensagens_erro } from '../validacaoDeForms/erros.js';
 import { validacaoCampoVazio } from '../validacaoDeForms/validacoesPadrao.js';
 
