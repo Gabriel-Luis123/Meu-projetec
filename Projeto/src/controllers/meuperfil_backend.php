@@ -7,7 +7,7 @@ if(!isset($_SESSION['status'])){
     exit;
 }
 
-$sql_user_infos = 'SELECT Nome, Email, Curso, Foto_Perfil FROM Aluno WHERE Registro_Academico = :registro';
+$sql_user_infos = 'SELECT Nome, Email, Curso, Foto_Perfil, E_Monitor FROM Aluno WHERE Registro_Academico = :registro';
 $stmt_user_infos = $pdo->prepare($sql_user_infos);
 $stmt_user_infos->bindParam(':registro', $_SESSION['registro']);
 $stmt_user_infos->execute();
@@ -28,3 +28,4 @@ $email_usuario = $resultado_infos['Email'];
 $curso_usuario = $resultado_infos['Curso'];
 $foto_perfil_usuario = $resultado_infos['Foto_Perfil'];
 $telefone_usuario = $resultado_tel['telefone'];
+$monitor_usuario = $resultado_infos['E_Monitor'];
