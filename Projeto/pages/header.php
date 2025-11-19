@@ -24,6 +24,7 @@
     <link rel="icon" href="../public/img/menuItens/icone.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="../public/css/<?php echo !empty($nameCSS) ? $nameCSS : ''; ?>.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -39,7 +40,7 @@
                         <a href="chat.php"><li  class="cabecalho-navegacao-menu-elemento">Chat</li></a>
                         <a href="FAQ.php"><li  class="cabecalho-navegacao-menu-elemento">FAQ's</li></a>
                         <a href="monitores.php" ><li  class="cabecalho-navegacao-menu-elemento">Monitores</li></a>
-                        <a href="minhas_monitorias_inscritas.php"> <li  class="cabecalho-navegacao-menu-elemento">Minhas Monitorias Inscritas</li></a>
+                        <a href="minhas_monitorias_inscritas.php"> <li  class="cabecalho-navegacao-menu-elemento">Monitorias Inscritas</li></a>
                         <?php if($_SESSION['status'] === 'Monitor'): ?>
                             <a href="minhas_monitorias.php"> <li  class="cabecalho-navegacao-menu-elemento">Minhas Monitorias</li></a>
                         <?php else: ?>

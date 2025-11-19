@@ -53,7 +53,7 @@ require_once __DIR__ . '/../src/controllers/editar_monitoria_dados.php';
                     </div>
                     <div class="linha-formulario">
                         <label for="inputSala">Sala:</label>
-                        <select name="sala" id="inputSala">
+                        <select  name="" id="inputSala">
                             <option value="" disabled selected>Escolha uma Sala:</option>
                             <?php foreach ($lista_Salas as $sala): ?>
                                 <option value="<?php echo htmlspecialchars($sala); ?>"><?php echo htmlspecialchars($sala); ?></option>
@@ -75,9 +75,6 @@ require_once __DIR__ . '/../src/controllers/editar_monitoria_dados.php';
                 <button class="botao-enviar" id="botaoConfirmarEdicao" type="submit">✔</button>
             </div>
 
-            <div id="resultado">
-                <p>AAAAAAAAAAAAAAAAAAAAA</p>
-            </div>
         </form>
 
     <?php else: ?>
@@ -138,6 +135,29 @@ require_once __DIR__ . '/../src/controllers/editar_monitoria_dados.php';
 
 <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
+<script>
+    const select = document.getElementById('inputSala');
+
+    select.addEventListener('mousedown', function (e) {
+
+        if (this.size === 1 || this.getAttribute('size') === null) {
+            e.preventDefault();
+            this.size = 5;
+            this.focus();  
+        }
+
+    });
+
+    select.addEventListener('change', function() {
+        this.removeAttribute('size');
+    });
+
+    select.addEventListener('blur', function(){
+        console.log('oi');
+        this.removeAttribute('size');
+    })
+
+</script>
 
 <?php
 $scripts = ["editar_monitoriaJs/editar_monitoria", "editar_monitoriaJs/editar_data_tempo_real", "editar_monitoriaJs/editar_horario", "editar_monitoriaJs/editar_sala"];

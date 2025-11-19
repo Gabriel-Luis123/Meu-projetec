@@ -10,6 +10,14 @@ require_once __DIR__ . '/../src/controllers/disciplinas_monitorias_backend.php';
 <main>
         <div class="main-barra-de-pesquisa secao-pesquisa">
             <input type="search" class="barra-pesquisa-input" placeholder="Pesquisar">
+            <select name="horario" id="horario" class="filtro_horario">
+                <option value="" disabled selected>Escolha um tipo de filtro:</option>
+                <option value="data">Data</option>
+                <option value="sala">Sala</option>
+                <option value="materia">Materia</option>
+                <option value="horario">Horario</option>
+                <option value="monitor">Monitor</option>
+            </select>
         </div>
         <div class="disciplina">
             <?php foreach($disciplinas as $disciplina): ?>
@@ -37,7 +45,7 @@ require_once __DIR__ . '/../src/controllers/disciplinas_monitorias_backend.php';
                                             </ul>
                                         </div>
                                         <footer class="card-rodape">
-                                            <span class="monitoria-sala"><?php echo htmlspecialchars($dados['curso']); ?></span>
+                                            <span class="monitoria-sala"><?php echo htmlspecialchars($dados['sala']); ?></span>
                                         </footer>
                                     </article>
                                 

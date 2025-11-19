@@ -3,7 +3,7 @@ $titlePage = 'Relatorio das Monitorias';
 $nameCSS = "relatorio";
 
 include_once 'header.php';
-if($_SESSION['status'] !== 'Monitor'){
+if ($_SESSION['status'] !== 'Monitor') {
     header('Location: inicial.php?mensagem=usuario_sem_permissao_acesso');
     exit;
 }
@@ -38,12 +38,12 @@ require_once __DIR__ . '/../src/controllers/relatorio_monitor_dados.php';
                     placeholder="Adicionar matérias que serão lecionadas" disabled><?php echo htmlspecialchars($conteudos); ?></textarea>
             </div>
         </div>
-</div>
-    <form class="container-lateral" action="../src//controllers/salvar_relatorio_backend.php?id=<?php echo htmlspecialchars($id_monitoria); ?>" method="POST">
+    </div>
+    <form class="container-lateral" action="../src/controllers/salvar_relatorio_backend.php?id=<?php echo htmlspecialchars($id_monitoria); ?>" method="POST">
         <h3 class="container-lateral-titulo">Alunos inscritos:</h3>
         <div class="box-lateral">
             <table class="tabela-alunos">
-                <?php foreach($lista_usuarios as $usuario => $dados): ?>
+                <?php foreach ($lista_usuarios as $usuario => $dados): ?>
                     <tr>
                         <td><?php echo htmlspecialchars($dados['registro_academico']); ?></td>
                         <td><?php echo htmlspecialchars($dados['nome']); ?></td>
@@ -56,8 +56,15 @@ require_once __DIR__ . '/../src/controllers/relatorio_monitor_dados.php';
         </div>
         <h3 class="container-lateral-titulo">Feedback da monitoria:</h3>
         <textarea id="areaTextoFeedback" name="feedback_monitoria" placeholder="Digite o feedback da monitoria"><?php echo htmlspecialchars($feedback); ?></textarea>
+        <div class="btn">
+            <button class="btn-salvar" type="submit">Salvar</button>
+            <?php if($concluida !== '1'): ?>
+                <a class="btn-salvar btn-concluir" href="../src/controllers/concluir_monitoria.php?id=<?php echo htmlspecialchars($id_monitoria) ?>">Concluir Monitoria</a>
+            <?php else: ?>
+                <a class="btn-revogar btn-concluir" href="../src/controllers/revogar_monitoria.php?id=<?php echo htmlspecialchars($id_monitoria) ?>">Revogar Monitoria</a>
+            <?php endif; ?>
+        </div>
 
-        <button class="btn-salvar" type="submit">Salvar</button>
     </form>
 </main>
 

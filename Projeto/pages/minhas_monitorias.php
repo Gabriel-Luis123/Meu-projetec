@@ -46,6 +46,7 @@ require_once __DIR__ . '/../src/controllers/minhas_monitorias_backend.php';
 
                         <div class="options-popup" id="optionsPopup">
                             <ul>
+                                <li><a href="#" class="popup-option" data-action="ver-relatorio">Ver Relatorio</a></li>
                                 <li><a href="#" class="popup-option" data-action="editar">Editar</a></li>
                                 <li><a href="#" class="popup-option" data-action="excluir" id="linkSair">Excluir</a></li>
                             </ul>
