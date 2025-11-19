@@ -16,7 +16,7 @@ require_once __DIR__ . '/../src/controllers/meuperfil_backend.php'
                     </label>
                 </div>
                 <div class="formulario-superior-infosUser">
-                    <h2 class="formulario-superior-infosUser-nome"><?php echo htmlspecialchars($nome_usuario); ?></h2>
+                    <h2 class="formulario-superior-infosUser-nome"><?php echo htmlspecialchars($nome_usuario); ?> (<?php echo $monitor_usuario === 1 ? 'Monitor(a)' : 'Aluno(a)' ?>)</h2>
                     <h3 class="formulario-superior-infosUser-registro">Registro Acadêmico: <?php echo htmlspecialchars($registro_academico_usuario); ?></h3>
                 </div>
             </div>
@@ -30,7 +30,7 @@ require_once __DIR__ . '/../src/controllers/meuperfil_backend.php'
                         <label class="formulario-inferior-container-labels-label">
                             <p class="formulario-inferior-container-labels-label-titulo">Senha: </p>
                             <input class="formulario-inferior-container-labels-label-input" type="password" id="senha" name="senha">
-                            <img class="formulario-inferior-container-labels-label-eye" src="../public/img/formsComponents/eye.png" alt="">
+                            <img class="formulario-inferior-container-labels-label-eye" id="toggleSenha" src="../public/img/formsComponents/visibility-off.png" alt="" >
                         </label>    
                         <label class="formulario-inferior-container-labels-label">
                             <p class="formulario-inferior-container-labels-label-titulo">Curso: </p>
@@ -50,6 +50,6 @@ require_once __DIR__ . '/../src/controllers/meuperfil_backend.php'
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 <?php
-    $scripts = ['perfilJs/perfil_form', 'perfilJs/perfil_mensagens_erro', 'perfilJs/perfil_mensagens_sucesso'];
+    $scripts = ['perfilJs/perfil_form', 'perfilJs/perfil_mensagens_erro', 'perfilJs/perfil_mensagens_sucesso', 'perfilJs/perfil_mostrarSenha'];
     include_once "footer.php";
 ?>
