@@ -21,10 +21,11 @@ if(!$horario){
 }
 
 
-$sql = "SELECT Horario,  Concluida, Localizacao FROM Monitoria WHERE Horario = :horario AND Registro_Academico = :registro";
+$sql = "SELECT Horario,  Concluida, Localizacao FROM Monitoria WHERE Horario = :horario AND Registro_Academico = :registro AND Data = :data";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam('horario', $horario);
 $stmt->bindParam('registro', $registro_academico);
+$stmt->bindParam('data', $data);
 $stmt->execute();
 
 if ($stmt->rowCount() > 0) {

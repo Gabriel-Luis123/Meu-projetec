@@ -9,18 +9,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $presenca = $_POST['check'];
     $presenca_confirmada = 0;
     $presenca_requisitada = $presenca ? '1' : '0';
-    $sql_aluno_inscrito = 'SELECT Presenca_requisitada FROM Alunos_Inscritos WHERE Registro_Academico = :registro AND ID_Monitoria = :id';
+    $sql_aluno_inscrito = 'SELECT Presenca_requisitada, ID_Monitoria FROM Alunos_Inscritos WHERE Registro_Academico = :registro AND ID_Monitoria = :id';
     $stmt_aluno_inscrito = $pdo->prepare($sql_aluno_inscrito);
     $stmt_aluno_inscrito->bindParam(':registro', $registro);
     $stmt_aluno_inscrito->bindParam(':id', $id);
     $stmt_aluno_inscrito->execute();
 
     $resultado_inscrito = $stmt_aluno_inscrito->fetch(PDO::FETCH_ASSOC) ? 'sim' : 'nao';
+    $dados_inscritos = $stmt_aluno_inscrito->fetch(PDO::FETCH_ASSOC);
     if ($presenca) {
         if ($resultado_inscrito === 'sim') {
             header('Location: ../../pages/disciplinas.php?mensagem=inscricao_mantida');
             exit;
         } else {
+            $sql_verificar_inscricao = 'SELECT Horario, Data FROM Monitoria WHERE ID_Monitoria = :id';
+            $stmt_verificar_inscricao = $pdo->prepare($sql_verificar_inscricao);
+            $stmt_verificar_inscricao->bindParam('id',$dados_inscritos['ID_Monitoria']);
+            $stmt_verificar_inscricao->execute();
+
+            $resultado_verificar_inscricao = $stmt_verificar_inscricao->fetch(PDO::FETCH_ASSOC);
+
+            $sql_monitorias_inscritas = 'SELECT ID_Monitoria FROM Alunos_Inscritos WHERE Registro_Academico = :registro';
+            $stmt_monitorias_inscritas = $pdo->prepare($sql_monitorias_inscritas);
+            $stmt_monitorias_inscritas->bindParam('registro', $registro);
+            $stmt_monitorias_inscritas->execute();
+
+            $resultado_monitorias_inscritas = $stmt_monitorias_inscritas->fetchAll(PDO::FETCH_ASSOC);
+
+            $lista_horarios = [];
+
+            foreach($resultado_monitorias_inscritas as $monitoria){
+                $sql_monitoria = 'SELECT Horario FROM Monitoria WHERE ID_Monitoria = :id';
+            }
+
             $sql_inscrever_aluno = 'INSERT INTO Alunos_Inscritos(Registro_Academico, Presenca_confirmada, Presenca_requisitada, ID_Monitoria) VALUES (:registro, :presenca_c , :presenca_r, :id)';
             $stmt_inscrever_aluno = $pdo->prepare($sql_inscrever_aluno);
             $stmt_inscrever_aluno->bindParam(':registro', $registro);

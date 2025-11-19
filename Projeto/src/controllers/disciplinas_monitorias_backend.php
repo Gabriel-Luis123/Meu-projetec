@@ -10,7 +10,7 @@ foreach($cores_lista_monitorias as $disciplina => $cor){
     $disciplinas[$disciplina] = $disciplina;
 }
 
-$sql_monitorias = 'SELECT ID_Monitoria, Registro_Academico, Horario, Data, Conteudos_Abordados, Concluida, Disciplina FROM Monitoria';
+$sql_monitorias = 'SELECT ID_Monitoria, Registro_Academico, Horario, Data, Conteudos_Abordados, Concluida, Disciplina, Localizacao FROM Monitoria';
 
 $stmt_monitorias = $pdo->prepare($sql_monitorias);
 
@@ -47,6 +47,7 @@ foreach($resultado_monitorias as $monitoria){
         'disciplina' => $materia_selecionada,
         'nome' => $resultado_monitor['Nome'],
         'curso' => $resultado_monitor['Curso'],
+        'sala' => $monitoria['Localizacao'],
         'horario' => $horario_formatado,
         'data' => $data_formatada,
         'conteudos' => $conteudos_divididos,

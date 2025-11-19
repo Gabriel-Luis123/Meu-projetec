@@ -5,7 +5,7 @@ require_once __DIR__ . '/../utils/con_db.php';
 $id_monitoria = $_GET['id'];
 $lista_usuarios = [];
 
-$sql_infos_monitoria = 'SELECT Data, Localizacao, Horario, Conteudos_Abordados, Feedback FROM Monitoria WHERE ID_Monitoria = :id';
+$sql_infos_monitoria = 'SELECT Data, Localizacao, Horario, Conteudos_Abordados, Feedback, Concluida FROM Monitoria WHERE ID_Monitoria = :id';
 $stmt_infos_monitoria = $pdo->prepare($sql_infos_monitoria);
 $stmt_infos_monitoria->bindParam(':id', $id_monitoria);
 $stmt_infos_monitoria->execute();
@@ -18,6 +18,7 @@ $data = $resultado['Data'];
 $sala = $resultado['Localizacao'];
 $conteudos = $resultado['Conteudos_Abordados'];
 $feedback = $resultado['Feedback'];
+$concluida = $resultado['Concluida'];
 
 $sql_alunos_inscritos = 'SELECT Registro_Academico, Presenca_confirmada FROM Alunos_Inscritos WHERE ID_Monitoria = :id';
 $stmt_alunos_inscritos = $pdo->prepare($sql_alunos_inscritos);
