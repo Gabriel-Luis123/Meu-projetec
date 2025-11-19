@@ -16,6 +16,18 @@ form {
     gap: 15rem;
 }
 
+.btn{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.btn-concluir{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Contêiner principal do formulário */
 .container-formulario {
     position: relative;
@@ -159,6 +171,20 @@ form {
 
 .btn-salvar {
     background-color: #28a745;
+    color: white;
+    height: 70px;
+    margin-top: 2.5rem;
+    width: 200px;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-revogar {
+    background-color: #c92020;
     color: white;
     height: 70px;
     margin-top: 2.5rem;

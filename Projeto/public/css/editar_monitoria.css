@@ -84,8 +84,6 @@ form {
 
 .linha-formulario {
     display: flex;
-    align-items: center; 
-    align-content: center;
     flex: 1 1 calc(50% - 10px); 
     box-sizing: border-box; 
     color: black;
@@ -98,24 +96,10 @@ form {
     min-width: 70px; 
 }
 
-#inputSala{
-  max-height: 150px;
-  overflow-y: scroll;
-  height: auto;
-}
-
-#inputSala[size]{
-  height: auto;
-}
-
-#inputSala option{
-  padding: 5px;
-}
-
-
 
 .linha-formulario input[type="text"],
 .linha-formulario textarea, .linha-formulario input[type="date"], .linha-formulario select {
+    height: 50px;
     flex-grow: 1; 
     padding: 8px 12px;
     border: 2px solid var(--cor-borda);
@@ -146,6 +130,7 @@ form {
   }
 .corpo1{
   display: flex;
+  height: 500px;
   flex-direction: column;
   justify-content: center;
 }
@@ -157,6 +142,12 @@ form {
 #inputData, #inputSala, #inputHorario, #inputMaterias{
     color: black;
   }
+
+#inputSala option{
+  font-size:1.4rem;
+  padding: 4px 0;
+}
+
   #areaTextoMateriais {
   color: black;
   height: 279px;
