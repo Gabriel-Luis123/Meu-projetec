@@ -1,5 +1,25 @@
+console.log(inputSala.selectedIndex);
+  console.log('dadasdadsada');
+
 document.getElementById("inputData").addEventListener("change", function () {
   const dataSelecionada = this.value;
+
+  const inputHorario = document.getElementById("inputHorario");
+  const inputSala = document.getElementById("inputSala");
+
+  inputHorario.value = "";
+  inputSala.value = "";
+
+  const icone2 = document.getElementById("iconeStatus2");
+  const icone3 = document.getElementById("iconeStatus3");
+
+  inputHorario.style.borderColor = "";
+  icone2.style.color = "";
+  icone2.innerHTML = "";
+
+  inputSala.style.borderColor = "";
+  icone3.style.color = "";
+  icone3.innerHTML = "";
 
   fetch("../src/controllers/verificar_data.php", {
     method: "POST",

@@ -11,5 +11,7 @@ export const mensagensSucesso = {
     'delecao_feita_sucesso': 'Você se desinscreveu dessa monitoria com sucesso',
     'inscricao_feita_sucesso': 'Você se inscreveu nessa monitoria com sucesso',
     'inscricao_mantida': 'Você manteve sua inscrição',
-    'desinscricao_sucesso': "Você se desinscreveu da monitoria com sucesso"
+    'desinscricao_sucesso': "Você se desinscreveu da monitoria com sucesso",
+    'conclusao_feita': "Você concluiu a monitoria com sucesso",
+    'revogar_monitoria_correta': "Você revogou a monitoria com sucesso"
 };
